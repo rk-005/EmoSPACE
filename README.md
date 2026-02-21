@@ -247,7 +247,7 @@ npm run dev        # Opens http://localhost:5173
 
 ## 📋 Vibe Log (AI Disclosure)
 
-> *Required by HackTheVibe rules — all AI assistance disclosed below.*
+
 
 ### 🤖 GitHub Copilot
 
