@@ -77,13 +77,13 @@ The raw Hartmann model outputs are mapped to our visual emotion system:
 
 | Hartmann Label | EmoSPACE Bucket | Visual Scene |
 |---|---|---|
-| `joy` | Happy | Sunny fields, flowers, warm light |
+| `joy` | Happy | Sunny flower fields, warm light |
 | `surprise` | Happy | Same warm scene (positive valence) |
-| `sadness` | Sad | Rain clouds, grey atmosphere |
-| `fear` | Stress | Dark storm, thunder flash |
+| `sadness` | Sad | Grey atmosphere |
+| `fear` | Stress | Dark atmosphere, bubble effects |
 | `disgust` | Angry | Volcanic / harsh lighting |
-| `anger` | Angry | Red tones, heavy effects |
-| `neutral` | Neutral | Clear sky, calm environment |
+| `anger` | Angry | Red tones, clouds, thunder, heavy effects |
+| `neutral` | Neutral | Calm, neutral environment |
 
 ---
 
@@ -96,14 +96,13 @@ All character sprites and environmental effect sprites were created using **[Ase
 | Asset | Description |
 |---|---|
 | `cat_sprite.png` | Character sprite — pixel-art cat companion |
-| `cloud_sprite.png` | Floating cloud effect |
+| `cloud_sprite.png` | Storm cloud effect for angry scene |
 | `whitecloud_sprite.png` | Lighter cloud layer for parallax |
-| `rain_sprite.png` | Rain particle effect |
-| `flower_sprite.png` | Individual flower asset for happy scene |
-| `flowerfield_sprite.png` | Full-width flower field for joy state |
+| `flower_sprite.png` | Individual flower asset for calm mood |
+| `flowerfield_sprite.png` | Full-width flower field for happy mood |
 | `sun_sprite.png` | Rotating sun effect for happy state |
-| `thunder_sprite.png` | Lightning bolt for stress/fear state |
-| `bubble_sprite.png` | Ambient bubble effects |
+| `thunder_sprite.png` | Lightning bolt for anger state |
+| `bubble_sprite.png` | Bubble particle effects for stress state |
 | `landing page bg.jpeg` | Landing screen pixel-art scene (satellite dish, clouds, warm sky) |
 
 ### Creativity & Visual Style
@@ -364,8 +363,8 @@ GitHub Copilot was used extensively throughout development as an inline coding a
 | Name | Role |
 |---|---|
 | **Rohith Krishna S** | Full-stack development, AI integration, backend API |
-| **Bhuvana P** | Frontend development, UI/UX design, CSS animations |
-| **Jishnu V** | Pixel art (Aseprite), visual design, environment system |
+| **Bhuvana P** | Pixel art (Aseprite), visual design, environment system |
+| **Jishnu V** | Frontend development, UI/UX design, CSS animations |
 
 > 
 
