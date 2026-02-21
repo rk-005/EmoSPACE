@@ -225,7 +225,91 @@ npm run dev        # Opens http://localhost:5173
 
 ---
 
-## 📡 API Reference
+## � Deployment (Production)
+
+EmoSPACE uses a **split deployment** architecture:
+
+```
+User Browser
+    │
+    ▼
+┌─────────────────────┐
+│   Vercel (Frontend) │  React + Vite  ──► https://emospace.vercel.app
+└─────────┬───────────┘
+          │ HTTPS API calls
+          ▼
+┌─────────────────────┐
+│  Render (Backend)   │  Node.js + Express  ──► https://emospace.onrender.com
+└─────────┬───────────┘
+          │ Mongoose
+          ▼
+┌─────────────────────┐
+│  MongoDB Atlas      │  Free 512MB cloud cluster
+└─────────────────────┘
+          │ HF Inference API
+          ▼
+┌─────────────────────┐
+│  Hugging Face       │  j-hartmann emotion model
+└─────────────────────┘
+```
+
+---
+
+### Step 1 — MongoDB Atlas
+
+1. Go to [cloud.mongodb.com](https://cloud.mongodb.com) → create a free **M0 cluster**
+2. **Database Access** → Add a database user with username + password
+3. **Network Access** → Add IP `0.0.0.0/0` (allows Render to connect from any IP)
+4. **Connect** → Get your connection string:
+   ```
+   mongodb+srv://<user>:<password>@cluster0.xxxxx.mongodb.net/emospace
+   ```
+
+---
+
+### Step 2 — Backend on Render
+
+1. Go to [render.com](https://render.com) → **New → Web Service**
+2. Connect your GitHub repo (`rk-005/EmoSPACE`)
+3. Configure:
+
+| Setting | Value |
+|---|---|
+| **Root Directory** | `server` |
+| **Build Command** | `npm install` |
+| **Start Command** | `node server.js` |
+
+4. Add **Environment Variables**:
+
+| Key | Value |
+|---|---|
+| `HF_TOKEN` | Your Hugging Face API token |
+| `MONGO_URI` | Your MongoDB Atlas connection string |
+
+5. Deploy → Render provides: `https://emospace.onrender.com`
+
+> ⚠️ **Cold Start Warning:** Render's free tier spins down after 15 min of inactivity. The **first request after idle may take 30–50 seconds** to respond while the server wakes up. Subsequent requests are instant.
+
+---
+
+### Step 3 — Frontend on Vercel
+
+1. Go to [vercel.com](https://vercel.com) → **New Project** → import `rk-005/EmoSPACE`
+2. Set **Root Directory** → `client`
+3. Framework: **Vite** (auto-detected)
+4. Add **Environment Variable**:
+
+| Key | Value |
+|---|---|
+| `VITE_API_BASE` | `https://emospace.onrender.com` |
+
+5. Deploy → Vercel provides: `https://emospace.vercel.app`
+
+> The frontend reads `VITE_API_BASE` at build time via `import.meta.env.VITE_API_BASE` — so no hardcoded URLs. For local dev, it falls back to `http://127.0.0.1:8000` automatically.
+
+---
+
+## �📡 API Reference
 
 | Method | Endpoint | Body | Response |
 |---|---|---|---|
