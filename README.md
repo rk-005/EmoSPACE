@@ -1,7 +1,7 @@
 # 🌌 EmoSPACE — Emotion-Aware Interactive Environment
 
 > **HackTheVibe — Team: 404_NOT_FURRED**
-> Powered by GitHub Education × Aya Community
+
 
 ---
 
