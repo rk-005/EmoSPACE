@@ -79,7 +79,7 @@ The raw Hartmann model outputs are mapped to our visual emotion system:
 |---|---|---|
 | `joy` | Happy | Sunny flower fields, warm light |
 | `surprise` | Happy | Same warm scene (positive valence) |
-| `sadness` | Sad | Grey atmosphere |
+| `sadness` | Sad |  blue with the rain droplets |
 | `fear` | Stress | Dark atmosphere, bubble effects |
 | `disgust` | Angry | Volcanic / harsh lighting |
 | `anger` | Angry | Red tones, clouds, thunder, heavy effects |
